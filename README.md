@@ -1,4 +1,4 @@
-bfsJavacl
+BFS in Javacl
 =========
 
-BFS in Javacl
+Implements BFS inJavaCL 
