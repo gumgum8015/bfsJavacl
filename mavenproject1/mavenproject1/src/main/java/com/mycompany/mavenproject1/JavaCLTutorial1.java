@@ -20,8 +20,8 @@ public class JavaCLTutorial1 {
         
         
         // Variablen, welche das koordinatensystem darstellen
-        int hoehe = 10;
-        int breite = 10;
+        int hoehe = 700;
+        int breite = 700;
         int gesamt = breite*hoehe;
         
         // Benötigte karten initz9ialisieren
@@ -135,8 +135,10 @@ public class JavaCLTutorial1 {
             addEvt = testKernel.enqueueNDRange(queue, globalSizes);
             abbruch = abbruch_Buffer.read(queue, addEvt);
             c++;
+            System.out.println("Durchläufe: " + c);
+            System.out.println("Size: " + abbruch.getBytes().length);
         }while(abbruch.get(0) == 0);
-        System.out.println("Durchläufe: " + c);
+
         
         
         System.out.println("Hier gehts zurück!");
@@ -144,14 +146,14 @@ public class JavaCLTutorial1 {
         Pointer<Integer> outPtr = wege_Buffer.read(queue, addEvt); // blocks until add_floats finished
         Pointer<Integer> outPtr2 = besucht_Buffer.read(queue, addEvt); // blocks until add_floats finished
         Pointer<Integer> outPtr3 = vorgaenger_Buffer.read(queue, addEvt); // blocks until add_floats finished
-
+        /*
         for (int i = 0; i < gesamt && i < gesamt; i++)
         {
             System.out.print(" :: " + UrsprungsKarte.get(i));
             if(((i+1)%breite)==0)
                 System.out.println();
         }
-        
+
         System.out.println();
         System.out.println("###############");
         System.out.println();
@@ -194,7 +196,9 @@ public class JavaCLTutorial1 {
        }
         
         System.out.println("Global Mem size = " + size + " byte - Local Mem size :" + lsize + " bytes");
+        */
         
+        //context.cc        
     }
     
     
