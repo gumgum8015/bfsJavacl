@@ -34,6 +34,7 @@ __kernel void testKernel(__global int* ursprung,__global int* wegeKarte,__global
                 { 
                     besucht[i+1] = 1;
                     wegeKarte[i+1] = wegeKarte[i]+1;
+                    //atomic_xchg(&wegeKarte[i+1],wegeKarte[i]+1); Kein Atmoic weil OpenCL 1.0!! .-(((
                     if (vorgaenger[i+1] > i | vorgaenger[i+1] == -1)
                         vorgaenger[i+1] = i;
                     abbruch[0] = 0;
